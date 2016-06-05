@@ -1,9 +1,0 @@
-F:\Projects\GoogleIt\GoogleIt\bin\Release\GoogleIt.exe.config
-F:\Projects\GoogleIt\GoogleIt\bin\Release\GoogleIt.exe
-F:\Projects\GoogleIt\GoogleIt\bin\Release\GoogleIt.pdb
-F:\Projects\GoogleIt\GoogleIt\obj\Release\GoogleIt.Form1.resources
-F:\Projects\GoogleIt\GoogleIt\obj\Release\GoogleIt.Properties.Resources.resources
-F:\Projects\GoogleIt\GoogleIt\obj\Release\GoogleIt.csproj.GenerateResource.Cache
-F:\Projects\GoogleIt\GoogleIt\obj\Release\GoogleIt.exe
-F:\Projects\GoogleIt\GoogleIt\obj\Release\GoogleIt.pdb
-F:\Projects\GoogleIt\GoogleIt\obj\Release\GoogleIt.csprojResolveAssemblyReference.cache
