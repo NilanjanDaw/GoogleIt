@@ -29,8 +29,7 @@ namespace GoogleIt
         public void ChangeUserAgent()
         {
             List<string> userAgent = new List<string>();
-            string ua = "Mozilla/5.0 (compatible; MSIE 10.0; Windows Phone 8.0; Trident/6.0; IEMobile/10.0; ARM; Touch; NOKIA; Lumia 920)";
-
+            String ua = "Mozilla/5.0 (Mobile; Windows Phone 8.1; Android 5.0; ARM; Trident/7.0; Touch; rv:11.0; IEMobile/11.0; NOKIA; Lumia 920) like iPhone OS 7_0_3 Mac OS X AppleWebKit/537 (KHTML, like Gecko) Mobile Safari/537";
             UrlMkSetSessionOption(URLMON_OPTION_USERAGENT_REFRESH, null, 0, 0);
             UrlMkSetSessionOption(URLMON_OPTION_USERAGENT, ua, ua.Length, 0);
         }
@@ -56,23 +55,32 @@ namespace GoogleIt
             this.WindowState = FormWindowState.Minimized;
         }
 
-        private void webBrowser1_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
-        {
-
-        }
 
         private void goHome(object sender, EventArgs e)
         {
             webBrowser1.Navigate("https://google.com/");
         }
 
-        
+        private void showProgressBar(object sender, WebBrowserProgressChangedEventArgs e)
+        {
+            progressBar1.Visible = true;
+            try
+            {
+                progressBar1.Maximum = (int)e.MaximumProgress;
+                progressBar1.Value = (int)e.CurrentProgress;
+            }
+            catch (System.ArgumentOutOfRangeException)
+            {
+                progressBar1.Value = progressBar1.Maximum;
+            }
+        }
 
-        
+
+        private void loadComplete(object sender, WebBrowserNavigatingEventArgs e)
+        {
+            progressBar1.Visible = false;
+        }
 
 
-
-
-       
     }
 }

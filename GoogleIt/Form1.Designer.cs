@@ -29,8 +29,9 @@
         private void InitializeComponent()
         {
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
-            this.label1 = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
@@ -45,6 +46,7 @@
             // 
             // splitContainer2.Panel1
             // 
+            this.splitContainer2.Panel1.Controls.Add(this.progressBar1);
             this.splitContainer2.Panel1.Controls.Add(this.webBrowser1);
             // 
             // splitContainer2.Panel2
@@ -55,6 +57,24 @@
             this.splitContainer2.Size = new System.Drawing.Size(286, 387);
             this.splitContainer2.SplitterDistance = 319;
             this.splitContainer2.TabIndex = 1;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(0, 4);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(283, 3);
+            this.progressBar1.TabIndex = 1;
+            // 
+            // webBrowser1
+            // 
+            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
+            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
+            this.webBrowser1.Name = "webBrowser1";
+            this.webBrowser1.Size = new System.Drawing.Size(286, 319);
+            this.webBrowser1.TabIndex = 0;
+            this.webBrowser1.Navigating += new System.Windows.Forms.WebBrowserNavigatingEventHandler(this.loadComplete);
+            this.webBrowser1.ProgressChanged += new System.Windows.Forms.WebBrowserProgressChangedEventHandler(this.showProgressBar);
             // 
             // label1
             // 
@@ -67,15 +87,6 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "GoogleIt";
             this.label1.Click += new System.EventHandler(this.goHome);
-            // 
-            // webBrowser1
-            // 
-            this.webBrowser1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.webBrowser1.Location = new System.Drawing.Point(0, 0);
-            this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
-            this.webBrowser1.Name = "webBrowser1";
-            this.webBrowser1.Size = new System.Drawing.Size(286, 319);
-            this.webBrowser1.TabIndex = 0;
             // 
             // Form1
             // 
@@ -102,6 +113,7 @@
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ProgressBar progressBar1;
     }
 }
 
