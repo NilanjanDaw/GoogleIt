@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Runtime.InteropServices; 
+using System.Runtime.InteropServices;
+using System.Net.NetworkInformation;
+using System.Threading; 
 
 namespace GoogleIt
 {
@@ -29,7 +31,7 @@ namespace GoogleIt
         public void ChangeUserAgent()
         {
             List<string> userAgent = new List<string>();
-            String ua = "Mozilla/5.0 (Mobile; Windows Phone 8.1; Android 5.0; ARM; Trident/7.0; Touch; rv:11.0; IEMobile/11.0; NOKIA; Lumia 920) like iPhone OS 7_0_3 Mac OS X AppleWebKit/537 (KHTML, like Gecko) Mobile Safari/537";
+            String ua = "Mozilla/5.0 (Windows Phone 8.1; ARM; Trident/7.0; Touch; rv:11.0; IEMobile/11.0; NOKIA; Lumia 920) like Gecko";
             UrlMkSetSessionOption(URLMON_OPTION_USERAGENT_REFRESH, null, 0, 0);
             UrlMkSetSessionOption(URLMON_OPTION_USERAGENT, ua, ua.Length, 0);
         }
@@ -41,6 +43,7 @@ namespace GoogleIt
                                       workingArea.Bottom - Size.Height);
             webBrowser1.ScriptErrorsSuppressed = true;
             webBrowser1.Navigate("https://google.com/");
+            connectionChecker.RunWorkerAsync();
         }
 
         
@@ -80,6 +83,53 @@ namespace GoogleIt
         {
             progressBar1.Visible = false;
         }
+
+        private void checkConnection(object sender, DoWorkEventArgs e)
+        {
+            int status = 1;
+            while (true)
+            {
+                try
+                {
+                    Ping ping = new Ping();
+                    String server = "8.8.8.8";
+                    int timeout = 1000;
+                    byte[] buffer = new byte[32];
+                    PingOptions options = new PingOptions();
+                    PingReply reply = ping.Send(server, timeout, buffer, options);
+                    if (reply.Status == IPStatus.Success)
+                    {
+                        if (status == 0)
+                            connectionChecker.ReportProgress(1);
+                        status = 1;
+                        Thread.Sleep(1000);
+                    }
+                    else
+                    {
+                        if (status == 1)
+                            connectionChecker.ReportProgress(0);
+                        status = 0;
+                        Thread.Sleep(100);
+                    }
+                }
+                catch (Exception)
+                {
+                    if (status == 1)
+                        connectionChecker.ReportProgress(0);
+                    status = 0;
+                    Thread.Sleep(100);
+                }
+            }
+        }
+
+        private void connectionChanged(object sender, ProgressChangedEventArgs e)
+        {
+            if (e.ProgressPercentage == 0)
+                connectionStatus.BackColor = Color.Red;
+            else
+                connectionStatus.BackColor = Color.Green;
+        }
+
 
 
     }

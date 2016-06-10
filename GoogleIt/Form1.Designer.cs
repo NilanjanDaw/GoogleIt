@@ -31,7 +31,9 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
+            this.connectionStatus = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.connectionChecker = new System.ComponentModel.BackgroundWorker();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
@@ -52,6 +54,7 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.splitContainer2.Panel2.Controls.Add(this.connectionStatus);
             this.splitContainer2.Panel2.Controls.Add(this.label1);
             this.splitContainer2.Panel2.DoubleClick += new System.EventHandler(this.panel2DoubleClicked);
             this.splitContainer2.Size = new System.Drawing.Size(286, 387);
@@ -76,17 +79,32 @@
             this.webBrowser1.Navigating += new System.Windows.Forms.WebBrowserNavigatingEventHandler(this.loadComplete);
             this.webBrowser1.ProgressChanged += new System.Windows.Forms.WebBrowserProgressChangedEventHandler(this.showProgressBar);
             // 
+            // connectionStatus
+            // 
+            this.connectionStatus.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
+            this.connectionStatus.Location = new System.Drawing.Point(12, 33);
+            this.connectionStatus.Name = "connectionStatus";
+            this.connectionStatus.Size = new System.Drawing.Size(8, 8);
+            this.connectionStatus.TabIndex = 2;
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.label1.Location = new System.Drawing.Point(12, 22);
+            this.label1.Location = new System.Drawing.Point(15, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 23);
+            this.label1.Padding = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.label1.Size = new System.Drawing.Size(96, 23);
             this.label1.TabIndex = 0;
             this.label1.Text = "GoogleIt";
             this.label1.Click += new System.EventHandler(this.goHome);
+            // 
+            // connectionChecker
+            // 
+            this.connectionChecker.WorkerReportsProgress = true;
+            this.connectionChecker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.checkConnection);
+            this.connectionChecker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.connectionChanged);
             // 
             // Form1
             // 
@@ -114,6 +132,8 @@
         private System.Windows.Forms.WebBrowser webBrowser1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Panel connectionStatus;
+        private System.ComponentModel.BackgroundWorker connectionChecker;
     }
 }
 
