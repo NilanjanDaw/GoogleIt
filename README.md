@@ -11,7 +11,7 @@ A bare bones, always on top web browser utility to constantly search the web for
 
 1. The source code provided is in the form of a visual studio project.
 2. Download the package.
-3. Open visual studio 2013 and above. Open the project.
+3. Open the project using Visual Studio 2013 or above.
 4. The form1.cs file contains the logic related codes.
 5. The form1.Designer.cs contains the UI related codes.
 6. A ready to install binary will be released soon after all the components have been integrated.
