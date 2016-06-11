@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.connectionStatus = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.connectionChecker = new System.ComponentModel.BackgroundWorker();
+            this.back = new System.Windows.Forms.Button();
+            this.forward = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
@@ -54,6 +57,8 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.BackColor = System.Drawing.SystemColors.Control;
+            this.splitContainer2.Panel2.Controls.Add(this.forward);
+            this.splitContainer2.Panel2.Controls.Add(this.back);
             this.splitContainer2.Panel2.Controls.Add(this.connectionStatus);
             this.splitContainer2.Panel2.Controls.Add(this.label1);
             this.splitContainer2.Panel2.DoubleClick += new System.EventHandler(this.panel2DoubleClicked);
@@ -106,6 +111,32 @@
             this.connectionChecker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.checkConnection);
             this.connectionChecker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.connectionChanged);
             // 
+            // back
+            // 
+            this.back.FlatAppearance.BorderSize = 0;
+            this.back.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
+            this.back.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.back.Image = ((System.Drawing.Image)(resources.GetObject("back.Image")));
+            this.back.Location = new System.Drawing.Point(117, 24);
+            this.back.Name = "back";
+            this.back.Size = new System.Drawing.Size(27, 23);
+            this.back.TabIndex = 2;
+            this.back.UseVisualStyleBackColor = true;
+            this.back.Click += new System.EventHandler(this.goBack);
+            // 
+            // forward
+            // 
+            this.forward.FlatAppearance.BorderSize = 0;
+            this.forward.FlatAppearance.MouseOverBackColor = System.Drawing.SystemColors.Control;
+            this.forward.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.forward.Image = ((System.Drawing.Image)(resources.GetObject("forward.Image")));
+            this.forward.Location = new System.Drawing.Point(150, 24);
+            this.forward.Name = "forward";
+            this.forward.Size = new System.Drawing.Size(28, 23);
+            this.forward.TabIndex = 3;
+            this.forward.UseVisualStyleBackColor = true;
+            this.forward.Click += new System.EventHandler(this.goForward);
+            // 
             // Form1
             // 
             this.BackColor = System.Drawing.SystemColors.ControlLightLight;
@@ -134,6 +165,8 @@
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Panel connectionStatus;
         private System.ComponentModel.BackgroundWorker connectionChecker;
+        private System.Windows.Forms.Button forward;
+        private System.Windows.Forms.Button back;
     }
 }
 

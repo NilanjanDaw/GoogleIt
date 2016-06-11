@@ -130,6 +130,15 @@ namespace GoogleIt
                 connectionStatus.BackColor = Color.Green;
         }
 
+        private void goBack(object sender, EventArgs e)
+        {
+            webBrowser1.GoBack();
+        }
+
+        private void goForward(object sender, EventArgs e)
+        {
+            webBrowser1.GoForward();
+        }
 
 
     }
