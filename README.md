@@ -2,7 +2,7 @@
 A bare bones, always on top web browser utility to constantly search the web for answers.
 
 ## Features
-1. Ubiquitous - GoogleIt stays with you no matter what you are doing, when you are doing.
+1. Ubiquitous - GoogleIt stays with you no matter what you are doing, when you are doing, because it's always on top of everything (pun intended).
 2. Network Indicator - The small green box next to the title is the signal indicator, turning red if the internet goes down.
 3. Smart minimise - Double tap anywhere on the taskbar and Whoosh! Its minimised. No need to find the damn minimise button.
 4. Small - Due to its bare bones nature, its soft on the resources.
