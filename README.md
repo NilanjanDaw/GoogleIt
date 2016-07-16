@@ -9,6 +9,9 @@ A bare bones, always on top web browser utility to constantly search the web for
 5. Smart Drag and Drop - Like a page? Just drag and drop it. And let GoogleIt handle the rest.
 6. Smart Home: Click on the GoogleIt icon and reach the Google home page no matter where you are.
 
+
+**PS.** Use your taskbar to close GoogleIt(Close button has been removed to keep it barebones).
+
 ## Instructions
 
 1. The source code provided is in the form of a visual studio project.
