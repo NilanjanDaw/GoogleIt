@@ -21,7 +21,7 @@ A bare bones, always on top web browser utility to constantly search the web for
 5. The form1.Designer.cs contains the UI related codes.
 
 ##Update
-- **Good News:** GoogleIt initial installer is alive. Check out the release section.
+- **Good News:** GoogleIt [initial installer](https://github.com/NilanjanDaw/GoogleIt/releases) is alive. Check out the release section.
 
 ## TO-DO
 The current version uses the Windows Forms based WebBrowser, however it has got serious perfomance issues. For better performance, a Chromium based WebBrowser client must be used.
