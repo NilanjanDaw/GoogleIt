@@ -21,4 +21,3 @@ The current version uses the Windows Forms based WebBrowser, however it has got 
 
 ## License
 [MIT](https://github.com/NilanjanDaw/GoogleIt/blob/master/LICENSE)
-

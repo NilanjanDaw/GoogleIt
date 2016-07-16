@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
 using System.Net.NetworkInformation;
-using System.Threading; 
+using System.Threading;
 
 namespace GoogleIt
 {
@@ -21,7 +21,7 @@ namespace GoogleIt
 
         const int URLMON_OPTION_USERAGENT = 0x10000001;
         const int URLMON_OPTION_USERAGENT_REFRESH = 0x10000002;
-       
+
         public Form1()
         {
             ChangeUserAgent();
@@ -31,7 +31,7 @@ namespace GoogleIt
         public void ChangeUserAgent()
         {
             List<string> userAgent = new List<string>();
-            String ua = "Mozilla/5.0 (Windows Phone 8.1; ARM; Trident/7.0; Touch; rv:11.0; IEMobile/11.0; NOKIA; Lumia 920) like Gecko";
+            String ua = "Mozilla/5.0 (Mobile; Windows Phone 8.1; Android 4.0; ARM; Trident/7.0; Touch; rv:11.0; IEMobile/11.0; NOKIA; Lumia 520) like iPhone OS 7_0_3 Mac OS X AppleWebKit/537 (KHTML, like Gecko) Mobile Safari/537";
             UrlMkSetSessionOption(URLMON_OPTION_USERAGENT_REFRESH, null, 0, 0);
             UrlMkSetSessionOption(URLMON_OPTION_USERAGENT, ua, ua.Length, 0);
         }
@@ -41,12 +41,13 @@ namespace GoogleIt
             Rectangle workingArea = Screen.GetWorkingArea(this);
             this.Location = new Point(workingArea.Right - Size.Width,
                                       workingArea.Bottom - Size.Height);
+ 
             webBrowser1.ScriptErrorsSuppressed = true;
             webBrowser1.Navigate("https://google.com/");
             connectionChecker.RunWorkerAsync();
         }
 
-        
+
 
         private void doucleClicked(object sender, EventArgs e)
         {
@@ -139,7 +140,5 @@ namespace GoogleIt
         {
             webBrowser1.GoForward();
         }
-
-
     }
 }
